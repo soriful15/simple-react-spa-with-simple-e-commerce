@@ -14,9 +14,9 @@ totalShipping=totalShipping+product.shipping
 
 
     }
-    const tax=((totalPrice*7)/100).toFixed(2)
+    const tax=((totalPrice*7)/100)
     const grandTotaL=parseFloat(totalPrice)+parseFloat(totalShipping)+parseFloat(tax)
-    const allGrandTotal=grandTotaL.toFixed(2)
+   
     return (
         <>
             <div className='mt-6 text-lg font-medium sticky top-0'>
@@ -24,8 +24,8 @@ totalShipping=totalShipping+product.shipping
                     <p className=' mt-6'>Selected Item: {cart.length}</p>
                     <p className='mt-4'>Total Price: ${totalPrice}</p>
                     <p className='mt-4'>Total Shipping Charge: ${totalShipping}</p>
-                    <p className='mt-4'>Tax: ${tax}</p>
-                    <h6 className='text-xl font-bold mt-4'>Grand Total: ${allGrandTotal}</h6>
+                    <p className='mt-4'>Tax: ${tax.toFixed(2)}</p>
+                    <h6 className='text-xl font-bold mt-4'>Grand Total: ${grandTotaL.toFixed(2)}</h6>
             
             </div>
         </>
