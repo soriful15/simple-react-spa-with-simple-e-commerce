@@ -12,6 +12,7 @@ import Home from './Components/Layout/Home';
 import Orders from './Components/Orders/Orders';
 import Inventory from './Components/Inventory/Inventory';
 import Login from './Components/Login/Login';
+import cartProductsLoader from './loaders/cartProductsLoaders';
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,9 @@ element: <Shop></Shop>
       },
       {
 path: 'orders',
-element: <Orders></Orders>
+element: <Orders></Orders>,
+// loader: ()=> fetch('products.json')
+loader: cartProductsLoader
       },
       {
 path: 'inventory',
@@ -40,7 +43,7 @@ element: <Login></Login>
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+ 
   <RouterProvider router={router} />
-  </React.StrictMode>,
+  
 )
