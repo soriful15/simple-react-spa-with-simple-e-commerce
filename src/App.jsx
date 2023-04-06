@@ -5,7 +5,7 @@ import Shop from './Components/Shop/Shop';
 const App = () => {
   return (
     <div>
-     <Header></Header>
+     {/* <Header></Header> */}
      <Shop/>
     </div>
   );

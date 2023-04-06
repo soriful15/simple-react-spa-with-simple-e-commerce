@@ -7,10 +7,15 @@ const Cart = ({ cart}) => {
     console.log(cart)
     let totalPrice=0
     let totalShipping=0
-
+let quantity=0
     for(const product  of cart){
-        totalPrice=totalPrice+product.price
-totalShipping=totalShipping+product.shipping
+        // if(product.quantity===0){
+        //     product.quantity=1
+        // }
+        // product.quantity=product.quantity || 1
+        totalPrice=totalPrice+product.price * product.quantity;
+totalShipping=totalShipping+product.shipping * product.quantity;
+quantity=quantity+product.quantity
 
 
     }
@@ -21,8 +26,8 @@ totalShipping=totalShipping+product.shipping
         <>
             <div className='mt-6 text-lg font-medium sticky top-0'>
                 <h4 className='text-2xl font-bold text-center'> Order Summary</h4>
-                    <p className=' mt-6'>Selected Item: {cart.length}</p>
-                    {/* <p className=' mt-6'>Selected Item: {cart.quantity}</p> */}
+                    {/* <p className=' mt-6'>Selected Item: {cart.length}</p> */}
+                    <p className=' mt-6'>Selected Item: {quantity}</p>
                     <p className='mt-4'>Total Price: ${totalPrice}</p>
                     <p className='mt-4'>Total Shipping Charge: ${totalShipping}</p>
                     <p className='mt-4'>Tax: ${tax.toFixed(2)}</p>
