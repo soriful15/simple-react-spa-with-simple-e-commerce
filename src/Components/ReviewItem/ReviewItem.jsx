@@ -20,7 +20,7 @@ const ReviewItem = ({ product,handleRemoveFromCart }) => {
                         <p className='text-lg- font-bold'> shipping charge: <span className='text-orange-500'>$ {quantity}</span></p>
                     </div>
                 </div>
-               <button className='my-auto  bg-red-300 px-3 py-3 rounded-full' onClick={()=>handleRemoveFromCart(id)}> <FontAwesomeIcon className='h-6 text-red-50' icon={faTrashCan} /></button>
+     <button className='my-auto  bg-red-300 px-3 py-3 rounded-full' onClick={()=>handleRemoveFromCart(id)}> <FontAwesomeIcon className='h-6 text-red-50' icon={faTrashCan} /></button>
             </div>
         </div>
     );
