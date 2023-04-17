@@ -34,7 +34,7 @@ const handleClearCart=()=>{
                }
                 
             </div>
-            <div className='cart-container bg-orange-200 p-6 mt-14 w-[576px]  h-[576px] sticky top-0'>
+  <div className='cart-container bg-orange-200 p-6 mt-14 w-[576px]  h-[576px] sticky top-0'>
                 <Cart
                 
                 cart={cart}

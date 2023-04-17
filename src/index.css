@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* @import url('https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans:wght@300;400&family=Poppins:wght@500&display=swap'); */
+
+* {
+    /* font-family: 'Lato', sans-serif; */
+   /*  font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif; */
+}
