@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faIcons } from '@fortawesome/free-solid-svg-icons'
 import { AuthContext } from '../../Provider/AuthProvider';
@@ -7,7 +7,15 @@ const Login = () => {
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
 
+
     const { SingIn } = useContext(AuthContext)
+    const navigate=useNavigate();
+const location=useLocation();
+console.log(location);
+
+const from=location.state?.from?.pathname || '/';
+console.log(from)
+
     const handleLogin = (e) => {
         e.preventDefault();
         setSuccess('')
@@ -22,9 +30,12 @@ const Login = () => {
             .then((result) => {
                 const loggedUser = result.user
                 console.log(loggedUser)
+              
                 form.reset()
                 setSuccess('User has created successfully')
                 setError('')
+                // navigate('/')
+                navigate(from, { replace: true })
 
             })
             .catch((error) => {

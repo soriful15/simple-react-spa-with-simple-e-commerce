@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faIcons } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 const SignUp = () => {
 
 const {createUser}=useContext(AuthContext)
@@ -16,6 +17,7 @@ const [success,setSuccess]=useState('')
         const form = e.target
         const email = form.email.value
         const password = form.password.value
+      
         const confirmPassword = form.confirmPassword.value
         console.log(email, password, confirmPassword)
 
@@ -46,6 +48,7 @@ const [success,setSuccess]=useState('')
             setError('')
             setSuccess('User has created successfully')
             form.reset()
+           
         })
         .catch((error)=>{
             console.log(error.message)
@@ -56,6 +59,9 @@ const [success,setSuccess]=useState('')
 
     }
 
+
+
+
     return (
         <div className="hero min-h-screen  bg-base-200">
             <div className="hero-content flex-col lg:flex-col">
@@ -65,6 +71,7 @@ const [success,setSuccess]=useState('')
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form className="card-body" onSubmit={handleSignUp} >
+                  
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
