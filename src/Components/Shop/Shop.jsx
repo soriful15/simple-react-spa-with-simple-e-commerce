@@ -73,7 +73,7 @@ const Shop = () => {
         addToDb(product.id)
     }
 
-    const handleClearCart=()=>{
+    const handleClearCart = () => {
         setCart([])
         deleteShoppingCart()
     }
@@ -92,17 +92,17 @@ const Shop = () => {
                 <div className='cart-container bg-orange-200 p-6 w-[576px]  h-[576px] mx-auto sticky top-0  mt-12'>
                     {/* <h4> Order Summary</h4>
                       <p>Selected Item: {cart.length}</p> */}
-                    <Cart 
-                    cart={cart}
-                    handleClearCart={handleClearCart}
-                    > 
-                     <Link to='/orders'> 
-                      
-                       <button className='text-xl mt-4 bg-amber-500 px-6 py-6 w-full flex justify-between rounded-2xl mx-auto text-white'><span>Review order</span> 
- <FontAwesomeIcon  className='h-6 ' icon={faBookOpenReader} />
- </button>
-                     </Link>
-                         </Cart>
+                    <Cart
+                        cart={cart}
+                        handleClearCart={handleClearCart}
+                    >
+                        <Link to='/orders'>
+
+                            <button className='text-xl mt-4 bg-amber-500 px-6 py-6 w-full flex justify-between rounded-2xl mx-auto text-white'><span>Review order</span>
+                                <FontAwesomeIcon className='h-6 ' icon={faBookOpenReader} />
+                            </button>
+                        </Link>
+                    </Cart>
                 </div>
 
             </div>

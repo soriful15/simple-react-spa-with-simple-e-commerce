@@ -26,7 +26,7 @@ const Product = (props) => {
                 </div>
                 <div className=''>
                     <div>
-                        <button onClick={() => handleAddToCart(props.product)} className='bg-amber-500 w-full px-4 py-4 border-2 border-solid rounded-2xl text-lg btn-cart'>Add to card <FontAwesomeIcon icon={faShoppingCart} /></button>
+<button onClick={() => handleAddToCart(props.product)} className='bg-amber-500 w-full px-4 py-4 border-2 border-solid rounded-2xl text-lg btn-cart'>Add to card <FontAwesomeIcon icon={faShoppingCart} /></button>
                     </div>
                 </div>
 
