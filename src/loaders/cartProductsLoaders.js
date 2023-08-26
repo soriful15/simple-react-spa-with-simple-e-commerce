@@ -1,23 +1,41 @@
+import { stringify } from "postcss";
 import { getShoppingCart } from "../utilities/fakedb";
 
 const cartProductsLoader = async () => {
-    const loadProducts = await fetch('products.json')
-    const products = await loadProducts.json()
-
-
     // if cart data is in database ,you have to use async await
     const storedCart = getShoppingCart()
     // console.log(storedCart);
-    let saveCart=[]
+    const ids = Object.keys(storedCart)
+    // console.log(ids)
+
+
+    const loadProducts = await fetch(`http://localhost:5000/productsByIds`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(ids)
+    })
+
+    const products = await loadProducts.json()
+// console.log(products)
+
+    /* // if cart data is in database ,you have to use async await
+    const storedCart = getShoppingCart()
+    // console.log(storedCart); */
+
+
+
+    let saveCart = []
     for (const id in storedCart) {
         // console.log(id);
-        const addProduct = products.find(pd => pd.id === id)
+        const addProduct = products.find(pd => pd._id === id)
         // console.log(addProduct);
         if (addProduct) {
-const quantity=storedCart[id]
-// console.log(quantity);
-addProduct.quantity=quantity
-saveCart.push(addProduct)
+            const quantity = storedCart[id]
+            // console.log(quantity);
+            addProduct.quantity = quantity
+            saveCart.push(addProduct)
         }
 
     }
